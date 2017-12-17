@@ -12,7 +12,7 @@
    style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
 
  <canvas id="ThreeJS" width="300" height="500"
-   style="position: absolute; left: 300; top: 70; z-index: 0;"></canvas>
+   style="position: absolute; left: 400; top: 150; z-index: 0;"></canvas>
 </div>
 
 	    <script>
@@ -52,7 +52,7 @@ function init(video) {
 
 	scene = new THREE.Scene();
 
-	geometry = new THREE.PlaneBufferGeometry(2240, 1080 );
+	geometry = new THREE.PlaneBufferGeometry(1120, 540 );
 	material = new THREE.ShaderMaterial({
 		vertexShader:   'varying vec2 vUv; void main () { vUv = uv; gl_Position = projectionMatrix * ( modelViewMatrix * vec4( position, 1.0 )); }',
 		fragmentShader: 'varying vec2 vUv; uniform vec3 color; uniform float range; uniform sampler2D map; void main () {\n\
