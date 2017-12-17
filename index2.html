@@ -77,11 +77,7 @@ function init(video) {
   container = document.getElementById( 'ThreeJS' );
 	document.body.appendChild( renderer.domElement );
 
-	
-var geometry = new THREE.PlaneGeometry( 5, 20, 32 );
-var material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-var plane = new THREE.Mesh( geometry, material );
-scene.add( plane );
+
 }
 	
 function animate() {
