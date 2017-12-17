@@ -11,8 +11,8 @@
  <canvas id="fonfon" width="600" height="600"
    style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
 
- <canvas id="ThreeJS" width="300" height="600"
-   style="position: absolute; left: 300; top: 50; z-index: 0;"></canvas>
+ <canvas id="ThreeJS" width="300" height="500"
+   style="position: absolute; left: 300; top: 70; z-index: 0;"></canvas>
 </div>
 
 	    <script>
@@ -28,12 +28,12 @@
 
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
 
-  <div id="picker" style="position:  absolute; left: 520; top: 600; z-index: 2;">
+  <div id="picker" style="position:  absolute; left: 520; top: 550; z-index: 2;">
 <input type="color" oninput="setColor(this)"></input>
 <input type="range" oninput="setRange(this)" min="0.1" max="0.9" step="0.01"></input>
 </div>
 
-<div style="position:  absolute; left: 520; top: 650; z-index: 3;">
+<div style="position:  absolute; left: 520; top: 580; z-index: 3;">
 <button onclick="capture()">capture</button>
 </div>
 
@@ -109,7 +109,7 @@ function capture() {
                               navigator.msGetUserMedia ||
                               function () { alert ('WebRTC not supported'); };
 
-	navigator.getUserMedia ({ video: { minWidth: 450, minHeight: 600 } }, function (stream) {
+	navigator.getUserMedia ({ video: { minWidth: 350, minHeight: 500 } }, function (stream) {
 
 		var video = document.createElement ('video');
 		video.loop = true;
