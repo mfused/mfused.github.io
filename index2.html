@@ -75,7 +75,7 @@ function init(video) {
 	scene.add( mesh );
 	
 var someBox = new THREE.Mesh (new THREE.BoxGeometry (100, 100, 100), new THREE.MeshNormalMaterial);
-someBox.rotation.set (1, 2, 3); someBox.position.z = -200;
+someBox.rotation.set (1, 2, 3); someBox.position.z = 200;
 scene.add (someBox);
 	
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
