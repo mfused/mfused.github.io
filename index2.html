@@ -52,6 +52,8 @@ function init(video) {
 	camera.position.z = 777;
 
 	scene = new THREE.Scene();
+	
+	geometry = new THREE.PlaneBufferGeometry(4230, 2070 );
 
 	geometry = new THREE.PlaneBufferGeometry(2230, 1070 );
 	material = new THREE.ShaderMaterial({
@@ -71,7 +73,11 @@ function init(video) {
 
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
-
+	
+var someBox = new THREE.Mesh (new THREE.BoxGeometry (100, 100, 100), new THREE.MeshNormalMaterial);
+someBox.rotation.set (1, 2, 3); someBox.position.z = -200;
+scene.add (someBox);
+	
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setSize( 350, 500 );
   container = document.getElementById( 'ThreeJS' );
