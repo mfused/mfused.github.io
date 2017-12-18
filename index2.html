@@ -6,13 +6,13 @@
 
 <body>
 
-  <div style="position: absolute;">
+  <div style="position: relative;">
 
  <canvas id="fonfon" width="600" height="600"
    style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
 
- <canvas id="ThreeJS" width="300" height="500"
-   style="position: absolute; left: 400; top: 150; z-index: 0;"></canvas>
+ <canvas id="ThreeJS" width="300" height="600"
+   style="position: absolute; left: 100; top: 0; z-index: 0;"></canvas>
 </div>
 
 	    <script>
@@ -23,17 +23,17 @@
 	      imageObj.onload = function() {
 	        context.drawImage(imageObj, 0, 0);
 	      };
-	      imageObj.src = 'fonfon2.png';
+	      imageObj.src = 'fonfon.png';
 	    </script>
 
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
 
-  <div id="picker" style="position:  absolute; left: 520; top: 550; z-index: 2;">
+  <div id="picker" style="position:  absolute; left: 620; top: 600; z-index: 2;">
 <input type="color" oninput="setColor(this)"></input>
 <input type="range" oninput="setRange(this)" min="0.1" max="0.9" step="0.01"></input>
 </div>
 
-<div style="position:  absolute; left: 520; top: 580; z-index: 3;">
+<div style="position:  absolute; left: 620; top: 650; z-index: 3;">
 <button onclick="capture()">capture</button>
 </div>
 
@@ -42,7 +42,6 @@
 var camera, scene, renderer;
 var geometry, material, mesh;
 
-	
 function init(video) {
 
 	var videoTexture = new THREE.VideoTexture (video);
@@ -52,10 +51,8 @@ function init(video) {
 	camera.position.z = 777;
 
 	scene = new THREE.Scene();
-	
-	geometry = new THREE.PlaneBufferGeometry(4230, 2070 );
 
-	geometry = new THREE.PlaneBufferGeometry(2230, 1070 );
+	geometry = new THREE.PlaneBufferGeometry(2240, 1080 );
 	material = new THREE.ShaderMaterial({
 		vertexShader:   'varying vec2 vUv; void main () { vUv = uv; gl_Position = projectionMatrix * ( modelViewMatrix * vec4( position, 1.0 )); }',
 		fragmentShader: 'varying vec2 vUv; uniform vec3 color; uniform float range; uniform sampler2D map; void main () {\n\
@@ -73,19 +70,14 @@ function init(video) {
 
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
-	
-var someBox = new THREE.Mesh (new THREE.BoxGeometry (100, 100, 100), new THREE.MeshNormalMaterial);
-someBox.rotation.set (1, 2, 3); someBox.position.z = 200;
-scene.add (someBox);
-	
+
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setSize( 350, 500 );
+	renderer.setSize( 450, 600 );
   container = document.getElementById( 'ThreeJS' );
 	document.body.appendChild( renderer.domElement );
 
-
 }
-	
+
 function animate() {
 
 	requestAnimationFrame( animate );
@@ -117,7 +109,7 @@ function capture() {
                               navigator.msGetUserMedia ||
                               function () { alert ('WebRTC not supported'); };
 
-	navigator.getUserMedia ({ video: { minWidth: 350, minHeight: 500 } }, function (stream) {
+	navigator.getUserMedia ({ video: { minWidth: 450, minHeight: 600 } }, function (stream) {
 
 		var video = document.createElement ('video');
 		video.loop = true;
@@ -127,7 +119,6 @@ function capture() {
 
 		video.oncanplaythrough = function () {
 			video.oncanplaythrough = null;
-			console.log(video.width, video.height)
 			init (video);
 			animate ();
 		};

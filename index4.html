@@ -69,6 +69,16 @@ function init(video) {
 
 
 
+
+  var geometry = new THREE.PlaneGeometry(600, 600, splitX, splitY);
+  var materials = [
+      new THREE.MeshBasicMaterial({
+          map: preloaded texture..., side: THREE.DoubleSide
+      }),
+      new THREE.MeshBasicMaterial({
+          color: 0xff0000, side: THREE.DoubleSide
+      })
+
 	renderer = new THREE.WebGLRenderer( { antialias: true } );
 	renderer.setSize( 450, 600 );
   container = document.getElementById( 'ThreeJS' );
