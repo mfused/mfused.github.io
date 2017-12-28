@@ -67,7 +67,7 @@ function init(video) {
 	scene.add( mesh );
 //
 var texture = new THREE.TextureLoader().load( 'mirror2.png' );
-				geometry = new THREE.BoxBufferGeometry( 2160, 1080, 5 );
+				geometry = new THREE.BoxGeometry( 2160, 1080, 5 );
 				material = new THREE.MeshBasicMaterial( { map: texture } );
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
