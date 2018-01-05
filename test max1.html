@@ -72,6 +72,8 @@ function setRange(input) {
                             navigator.msGetUserMedia ||
                             function () { alert ('WebRTC not supported'); };
 	
+	var constraints = { audio: true, video: { width: 640, height: 400 } }; 
+	
 	navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
   /* use the stream */
@@ -80,7 +82,7 @@ function setRange(input) {
   /* handle the error */
 });
 
-	navigator.getUserMedia ({ video: { minWidth: 640, minHeight: 400 } }, function (stream) {
+	//navigator.getUserMedia ({ video: { minWidth: 640, minHeight: 400 } }, function (stream) {
 
 		var video = document.createElement ('video');
 		video.loop = true;
