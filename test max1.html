@@ -73,11 +73,11 @@ function setRange(input) {
   /* handle the error */
 });
 	
-    //navigator.getUserMedia  = navigator.getUserMedia ||
-                           //   navigator.webkitGetUserMedia ||
-                           //   navigator.mediaDevices.getUserMedia ||
-                           //   navigator.msGetUserMedia ||
-                           //   function () { alert ('WebRTC not supported'); };
+    navigator.getUserMedia  = navigator.getUserMedia ||
+                             navigator.webkitGetUserMedia ||
+                             navigator.mediaDevices.getUserMedia ||
+                            navigator.msGetUserMedia ||
+                            function () { alert ('WebRTC not supported'); };
 
 	navigator.getUserMedia ({ video: { minWidth: 640, minHeight: 400 } }, function (stream) {
 
