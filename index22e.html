@@ -66,10 +66,9 @@ function init(video) {
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add( mesh );
 //
-var texture = new THREE.TextureLoader().load( 'mirror2.png' );
+var texture = new THREE.TextureLoader().load( 'mirror2.png' ); transparent: true, opacity: 0.9, color: 0xFF0000 }));
 				geometry = new THREE.BoxGeometry( 2160, 1080, 5 );
-				material = new THREE.MeshBasicMaterial( { map: texture } );
-	                        transparent = true; alpha test = 0.5;
+				material = new THREE.MeshBasicMaterial( { map: texture }
 				mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
 
