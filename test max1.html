@@ -64,6 +64,13 @@ function setRange(input) {
 	material.uniforms.range.value = parseFloat( input.value );
 }
 
+
+	
+    navigator.getUserMedia  = navigator.getUserMedia ||
+                             navigator.webkitGetUserMedia ||
+                             navigator.mediaDevices.getUserMedia ||
+                            navigator.msGetUserMedia ||
+                            function () { alert ('WebRTC not supported'); };
 	
 	navigator.mediaDevices.getUserMedia(constraints)
 .then(function(stream) {
@@ -72,12 +79,6 @@ function setRange(input) {
 .catch(function(err) {
   /* handle the error */
 });
-	
-    navigator.getUserMedia  = navigator.getUserMedia ||
-                             navigator.webkitGetUserMedia ||
-                             navigator.mediaDevices.getUserMedia ||
-                            navigator.msGetUserMedia ||
-                            function () { alert ('WebRTC not supported'); };
 
 	navigator.getUserMedia ({ video: { minWidth: 640, minHeight: 400 } }, function (stream) {
 
