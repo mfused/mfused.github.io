@@ -139,12 +139,12 @@ function capture() {
 		video.srcObject = stream;
 		video.setAttribute ('webkit-playsinline', 'webkit-playsinline');
 
-		video.oncanplaythrough = function () {
-			video.oncanplaythrough = null;
+		//video.oncanplaythrough = function () {
+			//video.oncanplaythrough = null;
       console.log(video.width, video.height)
 			init (video);
 			animate ();
-		};
+	
 
 		video.play ();
 	}, function (e) {
