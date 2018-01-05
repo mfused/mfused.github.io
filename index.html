@@ -7,23 +7,13 @@
 <body>
 
   <div style="position: relative;">
- <canvas id="layer1" width="475" height="600"
-   style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
 
- <canvas id="layer2" width="300" height="600"
+
+ <canvas id="layer2" width="450" height="600"
    style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
 </div>
 
-	    <script>
-	      var canvas = document.getElementById('layer1');
-	      var context = canvas.getContext('2d');
-	      var imageObj = new Image();
-
-	      imageObj.onload = function() {
-	        context.drawImage(imageObj, 0, 0);
-	      };
-	      imageObj.src = 'fon035a.png';
-	    </script>
+	   
 
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
 
