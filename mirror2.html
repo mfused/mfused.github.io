@@ -205,7 +205,7 @@ function init()
 	scene.add(movieScreen);
 	movieScreen.position.set(0,0,0);
 
-        var texture = THREE.ImageUtils.loadTexture( "images/mirror2.png" );
+        var texture = THREE.ImageUtils.loadTexture( "mirror2.png" );
         console.log(texture.image.width);
         var frameMaterial = new THREE.MeshBasicMaterial({  map:texture, transparent: true, side:THREE.DoubleSide});
 //        frameMaterial.scale.x = texture.image.width;
