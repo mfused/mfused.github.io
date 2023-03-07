@@ -1,120 +1,79 @@
-<html>
- <head> <meta charset = "UTF-8"> <title>.</title>
- <style>
-	 </style>
- </head>
 
-<body>
-
-  <div style="position: relative;">
-
-
- <canvas id="layer2" width="450" height="600"
-   style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GRLZ by MFused</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+<meta name="title" content="grlz collection">
+<meta name="description" content="GRLZ collection website">
+<meta name="keywords" content="art, ai, ai art, machine learning, artwork, ordinals, gamma, mfused, grlz">
+<meta property="og:title" content="materia mania by huemin">
+<meta property="og:image" content="grlz/girl0011.jpg">
+<meta property="og:description" content="GRLZ collection website">
+<link href="grlz/style.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/0db45a5e9b.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="grlz/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="grlz/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="grlz/favicon-16x16.png">
+<link rel="manifest" href="mm/img/site.webmanifest">
+<link rel="mask-icon" href="mm/img/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="mm/img/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="grlz/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body class="index">
+<header>
+<div id="title" class="clear">
+<div class="title-left">
+<h2>grlz</h2>
 </div>
-
-	   
-
-<script src="https://cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
-
-  <div style="position:  absolute; left: 8; top: 580; z-index: 3;">
-<input type="color" oninput="setColor(this)"></input>
-<input type="range" oninput="setRange(this)" min="0.1" max="0.9" step="0.01"></input>
-<button onclick="capture()">capture</button>
+<div class="title-right">
+<p><a href="https://mfused_art.github.io/">by mfused</a></p> <a href="https://mfused_art.github.io/"><img src="grlz/logo.gif"></a>
 </div>
-
-<script>
-
-var camera, scene, renderer;
-var geometry, material, mesh;
-
-function init(video) {
-
-	var videoTexture = new THREE.VideoTexture (video);
-	videoTexture.minFilter = THREE.LinearFilter;
-
-	camera = new THREE.PerspectiveCamera( 70, 800 / 400, 10, 1000 );
-	camera.position.z = 777;
-
-	scene = new THREE.Scene();
-
-	geometry = new THREE.PlaneBufferGeometry(2240, 1080 );
-	material = new THREE.ShaderMaterial({
-		vertexShader:   'varying vec2 vUv; void main () { vUv = uv; gl_Position = projectionMatrix * ( modelViewMatrix * vec4( position, 1.0 )); }',
-		fragmentShader: 'varying vec2 vUv; uniform vec3 color; uniform float range; uniform sampler2D map; void main () {\n\
-			vec3 tColor = texture2D( map, vUv ).rgb;\n\
-			float a = ( length( tColor - color ) - range ) * 7.0;\n\
-			gl_FragColor = vec4( tColor, a );\n\
-		}',
-		uniforms: {
-			color: { type: 'c', value: new THREE.Color ('#FFFFFF') },
-			range: { type: 'f', value: 0.5 },
-			map: { type: 't', value: videoTexture }
-		},
-		transparent: true
-	});
-
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
-
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setSize( 450, 600 );
-	document.body.appendChild( renderer.domElement );
-
-}
-
-function animate() {
-
-	requestAnimationFrame( animate );
-
-	mesh.rotation.y = Math.sin (1e-3 * (Date.now () % 1) * Math.PI);
-
-	renderer.render( scene, camera );
-
-}
-
-function setColor(input) {
-	material.uniforms.color.value.setStyle( input.value );
-}
-
-function setRange(input) {
-	material.uniforms.range.value = parseFloat( input.value );
-}
-
-function capture() {
-	var image = new Image;
-	renderer.render( scene, camera );
-	image.src = renderer.domElement.toDataURL( 'image/jpeg', 0.8 );
-	document.body.appendChild( image );
-}
-
-    navigator.getUserMedia  = navigator.getUserMedia ||
-                              navigator.webkitGetUserMedia ||
-                              navigator.mozGetUserMedia ||
-                              navigator.msGetUserMedia ||
-                              function () { alert ('WebRTC not supported'); };
-
-	navigator.getUserMedia ({ video: { minWidth: 450, minHeight: 600 } }, function (stream) {
-
-		var video = document.createElement ('video');
-		video.loop = true;
-		video.muted = true;
-		video.srcObject = stream;
-		video.setAttribute ('webkit-playsinline', 'webkit-playsinline');
-
-		//video.oncanplaythrough = function () {
-			//video.oncanplaythrough = null;
-			init (video);
-			animate ();
-	
-
-		video.play ();
-	}, function (e) {
-		// ouch
-		console.log (e);
-	});
-
-</script>
-
-</body>
-</html>
+</div>
+<div class="hamburger clear">
+<div class="nav-btn"><i class="fa-solid fa-bars"></i></div>
+</div>
+<nav class="main"><a href="https://braindrops.cloud/">braindrops</a> <a href="https://sansa.xyz/explore?platform=braindrops">sansa</a> <a href="#collection">collection</a> <a href="#method">method</a> <a href="#artist">artist</a> <a class="deforum" href="http://deforum.art">deforum</a></nav>
+</header>
+<div class="wrapper">
+<section id="examples">
+<div class="grid-container">
+<div class="grid-item">
+<img class="sample" src="grlz/girl0001.jpg">
+</div>
+<div class="grid-item">
+<img class="sample" src="grlz/girl0002.jpg">
+</div>
+<div class="grid-item">
+<img class="sample" src="grlz/girl0003.jpg">
+</div>
+<div class="grid-item">
+<img class="sample" src="grlz/girl0004.jpg">
+</div>
+</div>
+</section>
+<section id="collection">
+<h2 class="title">Collection</h2>
+<p>grlz is a collection of</p>
+</section>
+<section id="method">
+<h2 class="title">Model</h2>
+	<p></p>
+</section>
+<section id="artist">
+<h2 class="title">About </h2>
+<p></p>
+</section>
+</div>
+<footer>
+<p></p>
+</footer>
+</body></html>
