@@ -3,41 +3,15 @@ const bgFolderPath = "mm/detail/";
 const imgExtensions = ["jpg", "jpeg", "png", "gif"];
 
 const predefinedImageNames = [
-  "sample1.jpg",
-  "sample3.jpg",
-  "sample4.jpg",
-  "sample5.jpg",
-  "sample6.jpg",
-  "sample7.jpg",
-  "sample8.jpg",
-  "sample9.jpg",
+  
   "sample10.jpg",
-  "sample11.jpg",
+  "sample7.jpg",
   "sample12.jpg",
-  "sample13.jpg",
-  "sample14.jpg",
-  "sample15.jpg",
-  "sample16.jpg",
-  "sample17.jpg",
-  "sample18.jpg",
-  "sample19.jpg",
-  "sample20.jpg",
-  "sample21.jpg",
-  "sample22.jpg",
-  "sample23.jpg",
-  "sample24.jpg",
   "sample25.jpg",
   "sample26.jpg",
-  "sample27.jpg",
-  "sample28.jpg",
-  "sample29.jpg",
-  "sample30.jpg",
-  "sample31.jpg",
-  "sample32.jpg",
-  "sample33.jpg",
-  "sample34.jpg",
-  "sample35.jpg",
-  "sample36.jpg"
+  "sample8.jpg",
+  "sample5.jpg",
+  "sample21.jpg",
 ];
 
 let images = [];
@@ -78,26 +52,7 @@ const bgImageNames = [
   "detail2.jpg", 
   "detail3.jpg",
   "detail4.jpg",
-  "detail5.jpg",
-  "detail6.jpg",
-  "detail7.jpg",
-  "detail8.jpg",
-  "detail9.jpg",
-  "detail10.jpg",
-  "detail11.jpg",
-  "detail12.jpg",
-  "detail13.jpg",
-  "detail14.jpg",
-  "detail16.jpg",
-  "detail17.jpg",
-  "detail18.jpg",
-  "detail19.jpg",
-  "detail20.jpg",
-  "detail21.jpg",
-  "detail22.jpg",
-  "detail23.jpg",
-  "detail24.jpg",
-  "detail25.jpg"
+
 ];
 
 function setRandomBackgroundImage() {
