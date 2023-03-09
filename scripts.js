@@ -1,5 +1,5 @@
-const folderPath = "mm/samples/"; // Replace with the path to your images folder
-const bgFolderPath = "mm/detail/";
+const folderPath = "grlz/"; // Replace with the path to your images folder
+const bgFolderPath = "grlz/";
 const imgExtensions = ["jpg", "jpeg", "png", "gif"];
 
 const predefinedImageNames = [
